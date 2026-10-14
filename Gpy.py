@@ -1,145 +1,132 @@
-import sys
 import tkinter as tk
-import cv2
-from tkinter import *
+from tkinter import N, S, E, W
 
 from PIL import Image, ImageTk
 
 import My_math as m
 
-class GUI_img(Frame):
-    def __init__(self, master=None):
-        Frame.__init__(self, master)
+FONT = ("Microsoft JhengHei", 12)
+FONT_BIG = ("Microsoft JhengHei", 24)
+
+# 顯示名稱集中放這裡,要改名只改這一處
+LABELS = {
+    "X":  "載體圖 (X)",
+    "Y":  "秘密圖 (Y)",
+    "Z":  "藏密後影像 (Z)",
+    "Zr": "還原影像 (Zr)",
+}
+
+# 每張圖在 grid 的位置: (標籤 row, column);圖片放在標籤下一列
+LAYOUT = {
+    "X":  (0, 0),
+    "Y":  (0, 1),
+    "Z":  (2, 0),
+    "Zr": (2, 1),
+}
+
+
+class GUI_img(tk.Frame):
+    """images: dict,key 為 X/Y/Z/Zr,value 為 numpy 灰階陣列"""
+
+    def __init__(self, master, images):
+        super().__init__(master)
+        self.master = master
+        self.grid(sticky=N + S + E + W)
+
+        self.pil = {}      # 原始 PIL 圖
+        self.tkimg = {}    # PhotoImage(要留著參考,否則會被回收)
+        self.panels = {}   # 顯示圖片的 Label
+        self._after_id = None
+
+        for key, (row, col) in LAYOUT.items():
+            tk.Label(self, text=LABELS[key], font=FONT).grid(
+                row=row, column=col, sticky=N + S + E + W)
+
+            self.pil[key] = Image.fromarray(images[key])
+            self.tkimg[key] = ImageTk.PhotoImage(self.pil[key])
+            panel = tk.Label(self, image=self.tkimg[key])
+            panel.grid(row=row + 1, column=col, sticky="nsew")
+            self.panels[key] = panel
+
+        self.master.bind("<Configure>", self._on_configure)
+
+    def _on_configure(self, event):
+        # 子元件的 Configure 也會冒泡上來,只處理視窗本身
+        if event.widget is not self.master:
+            return
+        # debounce:停止拖曳 100ms 後才重畫
+        if self._after_id is not None:
+            self.after_cancel(self._after_id)
+        self._after_id = self.after(100, self._resize_images)
+
+    def _resize_images(self):
+        self._after_id = None
+        w = max(int(self.master.winfo_width() / 3), 1)
+        h = max(int(self.master.winfo_height() / 2.2), 1)
+        for key, panel in self.panels.items():
+            self.tkimg[key] = ImageTk.PhotoImage(self.pil[key].resize((w, h)))
+            panel.configure(image=self.tkimg[key])
+
+
+class GUI_button(tk.Frame):
+    """用原始陣列計算 PSNR(不是 resize 後的圖)"""
+
+    def __init__(self, master, images):
+        super().__init__(master)
+        self.master = master
+        self.images = images
+        self.quit_app = False
+
+        self.e = tk.Entry(self, width=40, font=FONT)
+        self.e.grid(row=0, column=0, columnspan=2, padx=20, pady=10, sticky=N)
+
+        self.b1 = tk.Button(
+            self, text="PSNR:載體圖 vs 藏密後影像",
+            command=lambda: self.show_psnr("X", "Z"),
+            fg="red", bg="white", font=FONT)
+        self.b1.grid(row=1, column=0, columnspan=2, padx=20, pady=10, sticky=N + S + E + W)
+
+        self.b2 = tk.Button(
+            self, text="PSNR:秘密圖 vs 還原影像",
+            command=lambda: self.show_psnr("Y", "Zr"),
+            fg="blue", bg="white", font=FONT)
+        self.b2.grid(row=2, column=0, columnspan=2, padx=20, pady=10, sticky=N + S + E + W)
+
+        self.b3 = tk.Button(self, text="重新選擇圖片", command=self.reselect, font=FONT)
+        self.b3.grid(row=3, column=0, padx=10, pady=10, sticky=N + S + E + W)
+
+        self.b4 = tk.Button(self, text="離開", command=self.exit_app, font=FONT)
+        self.b4.grid(row=3, column=1, padx=10, pady=10, sticky=N + S + E + W)
+
+    def show_psnr(self, a, b):
+        value = m.psnr(self.images[a], self.images[b])
+        self.set_text(f"PSNR({LABELS[a]} vs {LABELS[b]}) = {value:.2f} dB")
+
+    def set_text(self, text):
+        self.e.delete(0, tk.END)
+        self.e.insert(0, text)
+
+    def reselect(self):
+        self.master.destroy()
+
+    def exit_app(self):
+        self.quit_app = True
+        self.master.destroy()
+
+
+class error_GUI(tk.Frame):
+    def __init__(self, master, shape_x, shape_y):
+        super().__init__(master)
         self.master = master
 
-        sz=self.master.winfo_width()/3
-        #############################################################img name1
-        self.labelimg_X = Label(self,text = "img_X :")
-        self.labelimg_X.grid(row =0, column =0, sticky=N+S+E+W)
-        #############################################################img name2
-        self.labelimg_Y = Label(self,text = "img_Y :")
-        self.labelimg_Y.grid(row =0, column =1, sticky=N+S+E+W)
-        #############################################################img name3
-        self.labelimg_Z = Label(self,text = "img_Z :")
-        self.labelimg_Z.grid(row =2, column =0, sticky=N+S+E+W)
-        #############################################################img name4
-        self.labelimg_Zr = Label(self,text = "img_Zr :")
-        self.labelimg_Zr.grid(row =2, column =1, sticky=N+S+E+W)
+        msg = [
+            f"載體圖 (X) 尺寸:{shape_x}",
+            f"秘密圖 (Y) 尺寸:{shape_y}",
+            "兩張圖尺寸不同,請重新選擇",
+        ]
+        for i, text in enumerate(msg):
+            tk.Label(self, text=text, font=FONT_BIG).grid(
+                row=i, column=0, sticky=N + S + E + W)
 
-
-        #############################################################img1
-        self.grid(sticky=N+S+E+W)
-        self.image1 = Image.open("./result_img/img_X.BMP")
-        self.img_copy1= self.image1.copy()
-        self.background_image1 = ImageTk.PhotoImage(self.image1)
-        self.background1 = Label(self, image=self.background_image1)
-        self.background1.grid(row =1, column =0,sticky="nsew")
-
-        #############################################################img2
-        self.image2 = Image.open("./result_img/img_Y.BMP")
-        self.img_copy2= self.image2.copy()
-        self.background_image2 = ImageTk.PhotoImage(self.image2)
-        self.background2 = Label(self, image=self.background_image2)
-        self.background2.grid(row =1, column =1,sticky="nsew")
-
-
-        #############################################################img3
-        self.image3 = Image.open("./result_img/img_Z.BMP")
-        self.img_copy3= self.image3.copy()
-        self.background_image3 = ImageTk.PhotoImage(self.image3)
-        self.background3 = Label(self, image=self.background_image3)
-        self.background3.grid(row =3, column =0,sticky="nsew")
-
-        #############################################################img4
-        self.image4 = Image.open("./result_img/img_Zr.BMP")
-        self.img_copy4= self.image4.copy()
-        self.background_image4 = ImageTk.PhotoImage(self.image4)
-        self.background4 = Label(self, image=self.background_image4)
-        self.background4.grid(row =3, column =1,sticky="nsew")
-        self.master.bind('<Configure>', self._resize_image)
-    def _resize_image(self,event):
-        new_width = int(self.master.winfo_width()/3)
-        new_height = int(self.master.winfo_height()/2.2)
-
-
-        #############################################################img1
-        self.image1 = self.img_copy1.resize((new_width, new_height))
-        self.background_image1 = ImageTk.PhotoImage(self.image1)
-        self.background1.configure(image =  self.background_image1)
-
-        #############################################################img2
-        self.image2 = self.img_copy2.resize((new_width, new_height))
-        self.background_image2 = ImageTk.PhotoImage(self.image2)
-        self.background2.configure(image =  self.background_image2)
-
-        #############################################################img3
-        self.image3 = self.img_copy3.resize((new_width, new_height))
-        self.background_image3 = ImageTk.PhotoImage(self.image3)
-        self.background3.configure(image =  self.background_image3)
-
-        #############################################################img4
-        self.image4 = self.img_copy4.resize((new_width, new_height))
-        self.background_image4 = ImageTk.PhotoImage(self.image4)
-        self.background4.configure(image =  self.background_image4)
-
-
-class GUI_button(Frame):
-    def __init__(self, master):
-        Frame.__init__(self, master)
-        mx=cv2.imread("./result_img/img_X.BMP", 0)
-        my=cv2.imread("./result_img/img_Y.BMP", 0)
-        mz=cv2.imread("./result_img/img_Z.BMP", 0)
-        mzr=cv2.imread("./result_img/img_Zr.BMP", 0)
-
-        self.master = master
-        
-        self.e = Entry(self,width=40, font = (("Times New Roman"),15))
-        self.e.grid(row =0, column =0, columnspan=2, padx=20, pady=10, sticky=N)
-
-        self.b1 = Button(self,text="X_Z_psnr",command=lambda:self.set_text("psnr of  X to Z = "+str(m.psnr(mx,mz))), fg = 'red', bg = 'white', highlightbackground="blue" ,font = (("Times New Roman"),15))
-        self.b1.grid(row =1, column =0, columnspan=2, padx=20, pady=10, sticky=N+S+E+W)
-        
-
-        self.b2 = Button(self,text="Y_Zr_psnr",command=lambda:self.set_text("psnr of  Y to Zr = "+str(m.psnr(my,mzr))), fg = 'blue', bg = 'white', highlightbackground="blue",font = (("Times New Roman"),15))
-        self.b2.grid(row =2, column =0, columnspan=2, padx=20, pady=10, sticky=N+S+E+W)
-
-        self.b3 = Button(self, text = "Reselect", command=self.reput)
-        self.b3.grid(row =3, column =0, padx=10, pady=10, sticky=N+S+E+W)
-        
-        self.b4 = Button(self, text = "Exit", command=self.QQ)
-        self.b4.grid(row =3, column =1, padx=10, pady=10, sticky=N+S+E+W)
-
-
-    def reput(self):
-        self.master.destroy()
-    def QQ(self):
-        self.master.destroy()
-        sys.exit("exit !")
-    def set_text(self,text):
-        self.e.delete(0,tk.END)
-        self.e.insert(0,text)
-        return 
-    
-
-class error_GUI(Frame):
-    def __init__(self, master,shape_x,shape_y):
-        Frame.__init__(self)
-
-        self.shape =shape_x
-        self.shape =shape_y
-        
-        self.labelimg_x = Label(self,text = "img_X.shape = " + str(shape_x), font = (("Times New Roman"),30))
-        self.labelimg_x.grid(column=0, row=0, sticky=N+S+E+W)
-
-        self.labelimg_Y = Label(self,text = "img_Y.shape = " + str(shape_y), font = (("Times New Roman"),30))
-        self.labelimg_Y.grid(column=0, row=1, sticky=N+S+E+W)
-
-        self.labelimg_text = Label(self,text = "Please select two images of the same size !", font = (("Times New Roman"),30))
-        self.labelimg_text.grid(column=0, row=2, sticky=N+S+E+W)
-
-        self.b0 = Button(self, text = "Sure", command=self.reput, font = (("Times New Roman"),30))
-        self.b0.grid(column=0, row=3, columnspan=1, padx=10, pady=10, sticky=N+S+E+W)
-
-    def reput(self):
-        self.master.destroy()
-        
+        tk.Button(self, text="確定", command=self.master.destroy, font=FONT_BIG).grid(
+            row=3, column=0, padx=10, pady=10, sticky=N + S + E + W)
