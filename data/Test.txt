@@ -1,0 +1,28 @@
+以調整區塊長度的奇偶性質之雙色電子文件之資料隱藏與真偽驗證技術 
+Data Hiding and Authentication Techniques of 2-Color Digital Documents Based on Even-Odd Relationship with Run-Length Block 
+
+
+吳大鈞 
+國立高雄第一科技大學
+資訊管理系
+dcwu@ccms.nkfust.ed.tw
+
+徐明高
+銘傳大學
+資訊管理系 EMBA
+arthur@rsl.com.tw 
+
+ 
+摘 要
+
+隨著網際網路的快速發展，經常用電子文件作為傳遞訊息的形態。其中能在僅呈現黑、白雙色之電子文件影像中，能將公司商標、產品訊息嵌入文件內，而提出一種創新的資訊隱藏技術。使用此技術，電子文件中可以攜帶額外資訊、亦可保障數位化電子商業文件之智慧財產權及驗證文件之真偽。
+本隱藏方法提出區塊長度的奇偶關係之資料隱藏法，在二元影像黑白區塊對中，以調整其區塊長度的方式來隱藏資訊，並以調整後黑白像素的奇偶性質達到嵌入資料的目的。並以BCH糾錯編碼方法設計出驗證二元影像有無被竄改之技術。在驗證文件真偽時不需參考原始文件。
+
+關鍵詞：二元影像、區塊長度、奇偶關係、區塊對、影像驗證。
+
+ABSTRACT
+
+With the rapid growth of Internet, lots of communication via electronic document on Internet easily. In this paper, we explore a novel technique for information hiding in 2-color electronic commercial documents. Logos or product information can be embedded in documents. With this technique, we can carry extra information with electronic documents, protect the intellectual property rights and authenticate electronic documents.
+The hiding method is using even-odd relationship with run-length block on information hiding method. We can adjust run-length block according to even/odd pixels on block pair of binary image. Also, we propose a binary image authentication method which is designed by using BCH error correction codes. We can carry out the authentication jobs without referencing the original document images. 
+
+

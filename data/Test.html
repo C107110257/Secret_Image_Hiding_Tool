@@ -1,0 +1,837 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Steganography - the art of information hiding. Information, Software, News">
+<meta name="keywords"
+content="steganography, watermarking, stego, steganalysis, software, information hiding, steganography software, encryption, privacy, Steganography Info and Archive">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Steganography Software - Windows</title>
+<!--  Page authored and maintained by webmaster@stegoarchive.com -->
+</head>
+
+<!--Begin JavaScript roadmap code.  If editing downloaded HTML source, delete
+ this portion.-->
+
+<script language="JavaScript">
+<!--
+
+function TripodShowPopup()
+{
+   var bName=navigator.appName;
+   var bVer=parseInt(navigator.appVersion);
+   var now = new Date();
+   var popupURL = "/adm/popup/roadmap.shtml?"+"member_name=steganography&path=stego&client_ip=61.59.121.250&ts=1048293498&ad_type=POPUP&search_string=hack-crypt&id=4eb78c89d4b57c86ea429336f01ac083";
+   var popupName = "TripodPopup";
+
+   if (bName=="Netscape" && bVer<=3)
+   {
+      var popupWin = window.open("", popupName,'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=482,height=215');
+  	  popupWin.focus();
+   }
+   else
+   {
+      var popupWin = window.open("", popupName,'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=472,height=200');
+      popupWin.focus();
+   }
+   popupWin.location = popupURL;
+}
+
+if(window.parent==window)
+{
+   TripodShowPopup();
+}
+
+// -->
+</script>
+
+<script language="JavaScript1.2">
+<!--
+
+function changeOpenFunction()
+{
+   var original_window_open = window.open;
+   function new_open_function(url, name, features, replace)
+   {
+      if(name != "TripodPopup")
+         return original_window_open(url, name, features, replace);
+   }
+   window.open = new_open_function;
+}
+var bName = navigator.appName;
+
+if(bName != "Netscape")
+   changeOpenFunction();
+
+// -->
+</script>
+<!--insite and popunder-->
+<script language="javascript" type="text/javascript">
+function showUnder(scale) {
+	var expdate = new Date ();
+	var surveyCookieName = "TRIPODPOPUNDER";
+ 	var percentOfferedSurvey = 100;
+ 	var surveyLocation = "/adm/popunder/tripod_popunder.html?"+"member_name=steganography&path=stego&client_ip=61.59.121.250&ts=1048293498&ad_type=POPUP&search_string=hack-crypt&id=4eb78c89d4b57c86ea429336f01ac083";
+ 	var popupNewWindow = true;
+
+  	expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000));
+	var stored_value = GetCookie(surveyCookieName);
+	if (stored_value == null){
+		SetCookie(surveyCookieName, "under", expdate, "/", ".tripod.com");
+		trUnder = window.open(surveyLocation,'under','height=300,width=720,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no');
+		trUnder.blur();
+  	}
+}
+
+function showInsite(){
+	var expdate = new Date ();
+	var surveyCookieName = "TRIPODINSITE";
+ 	var percentOfferedSurvey = 100;
+ 	var showSurvey = "hack-crypt";
+ 	var surveyLocation = "/adm/redirect/cgi/adm/popunder/insite.html?"+"member_name=steganography&path=stego&client_ip=61.59.121.250&ts=1048293498&ad_type=POPUP&search_string=hack-crypt&id=4eb78c89d4b57c86ea429336f01ac083"+"&member_url="+document.location;
+ 	var popupNewWindow = true;
+	
+
+  	expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000));
+	var stored_value = GetCookie(surveyCookieName);
+	if (stored_value == null && showSurvey != "(none)"){
+		SetCookie(surveyCookieName, "insite", expdate, "/", ".tripod.com");
+		trInsite = window.open(surveyLocation,'insite','height=300,width=450,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no');
+		trInsite.blur();
+  	}
+}
+
+
+function SetCookie (name,value,expires,path,domain,secure){
+	document.cookie = name + "=" + escape (value) +
+		((expires) ? "; expires=" + expires.toGMTString() : "") +
+		((path) ? "; path=" + path : "") +
+		((domain) ? "; domain=" + domain : "") +
+		((secure) ? "; secure" : "");
+}
+
+function getCookieVal (offset){
+	var endstr = document.cookie.indexOf (";", offset);
+	if (endstr == -1)
+		endstr = document.cookie.length;
+	return unescape(document.cookie.substring(offset, endstr));
+  }
+
+function GetCookie (name){
+	var arg = name + "=";
+	var alen = arg.length;
+	var clen = document.cookie.length;
+	if( (document.cookie == null) || (document.cookie.length == null)){
+		return null;
+	}
+	var i = 0;
+	while (i < clen){
+		var j = i + alen;
+		if (document.cookie.substring(i, j) == arg)
+			return getCookieVal (j);
+		i = document.cookie.indexOf(" ", i) + 1;
+		if (i == 0) break;
+	}
+	return null;
+}
+
+showUnder();
+showInsite();
+
+</script><BODY background="blueback.gif" bgcolor="#FFFFFF" text="#000000"
+link="#0000FF" vlink="#800080">
+
+<h1 align="center"><!--webbot bot="HTMLMarkup" startspan --><!-- Begin WebAds Code -->
+<script language="javascript" type="text/javascript">
+var adcode = '';
+var thedate = new Date();
+var random = thedate.getTime();
+document.write('<sc'+'ript src="http://webads.bizservers.com/servlets/code?acc=4016&noCache=' + random + '"><\/s'+'cript>');
+</script><script language="javascript" type="text/javascript">
+document.write(adcode);
+</script>
+<!-- End WebAds Code --><!--webbot
+bot="HTMLMarkup" endspan --></h1>
+
+<h1 align="center"><font color="#FF0000">Steganography Software</font></h1>
+
+<p align="center"><strong>Windows | </strong><a
+href="softwaredos.html"><strong>DOS</strong></a><strong> | </strong><a
+href="softwarejava.html"><strong>Java</strong></a><strong> | </strong><a
+href="softwaremac.html"><strong>Macintosh</strong></a><strong> | </strong><a
+href="softwareos2.html"><strong>OS/2</strong></a><strong> | </strong><a
+href="softwareunix.html"><strong>Unix/OpenBSD/Linux</strong></a><strong>
+| </strong><a href="softwareamiga.html"><strong>Amiga</strong></a></p>
+
+<hr>
+<div align="left">
+
+<table border="0" cellpadding="8" cellspacing="0" width="100%">
+    <tr>
+        <td valign="top" width="10%" nowrap><font size="4"><b>Contents</B></font><br>
+        <br>
+        <a href="info.html"><font size="3"><img src="reddot.gif"
+        alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="../stego.html"><font
+        color="#000000" size="3">Main Page</font></a><br>
+        <a href="info.html"><font size="3"><img src="reddot.gif"
+        alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="info.html"><font
+        color="#000000" size="3">Additional Info</font></a><font
+        size="3"><br>
+        </font><a href="whatsnew.html"><font size="3"><img
+        src="reddot.gif" alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="whatsnew.html"><font
+        color="#000000" size="3">What's New</font></a><font
+        size="3"><br>
+        </font><a href="software.html"><font size="3"><img
+        src="reddot.gif" alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="software.html"><font
+        color="#000000" size="3">Software</font></a><font
+        size="3"><br>
+        </font><a href="watermrk.html"><font size="3"><img
+        src="reddot.gif" alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="watermrk.html"><font
+        color="#000000" size="3">Watermarking</font></a><font
+        size="3"><br>
+        </font><a href="info.html#Steganalysis"><font size="3"><img
+        src="reddot.gif" alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="info.html#Steganalysis"><font
+        color="#000000" size="3">Steganalysis</font></a><font
+        size="3"><br>
+        </font><a href="newsform.html"><font size="3"><img
+        src="reddot.gif" alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="newsform.html"><font
+        color="#000000" size="3">Newsletter</font></a><font
+        size="3"><br>
+        </font><a href="nonengl.html"><font size="3"><img
+        src="reddot.gif" alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="nonengl.html"><font
+        color="#000000" size="3">Non-English</font></a><font
+        size="3"><br>
+        </font><a href="feedback.html"><font size="3"><img
+        src="reddot.gif" alt="*" border="0" width="9" height="9"></font></a><font
+        size="3"> </font><a href="feedback.html"><font
+        color="#000000" size="3">Feedback</font></a><font
+        size="3"><br>
+        </font></td>
+        <td valign="top" width="50%"><div align="left"><table
+        border="0" cellpadding="2" cellspacing="0" width="100%">
+            <tr>
+                <td width="80%" nowrap><a name="Windows"><font
+                size="5"><strong>Windows</strong></font></a></td>
+                <td align="center"><div align="center"><center><table
+                border="1" cellpadding="2" cellspacing="0"
+                width="100%" bordercolor="#0000FF"
+                bordercolordark="#0000FF"
+                bordercolorlight="#0000FF">
+                    <tr>
+                        <td align="center" width="100%"><p
+                        align="center"><a
+                        href="stegoarchivecd.html"><font
+                        color="#400040" size="2"><strong>StegoArchive
+                        CD<br>
+                        $21.95</strong></font></a></p>
+                        </td>
+                    </tr>
+                </table>
+                </center></div></td>
+            </tr>
+        </table>
+        </div><dl>
+            <dt><a href="http://www.steganos.com"><font size="2">Steganos
+                Security Suite 4</font></a><font size="2"> (8.0
+                mb) </font><font size="1"><em>Shareware/Commercialware
+                $39.95</em></font></dt>
+            <dd><font size="2">The Steganos Security Suite is a
+                complete, easy to use security suite that uses
+                strong encyption and steganographic techniques to
+                hide data in graphic and sound files. Also
+                include is The Safe (drive encryption up to 1 GB
+                in &lt; 1 second), Internet Trace Destructor,
+                file shredder, e-mail encryption, password
+                manager and computer locking. Available in
+                English, German, Italian, French, and Spanish
+                versions, Steganos just keeps getting better.
+                Download the 30-day full featured trial version
+                and check it out now! </font></dd>
+            <dt><a href="http://www.invisiblesecrets.com"><font
+                size="2">Invisible Secrets v4.0</font></a><font
+                size="2"> (2.9 mb) </font><font size="1"><em>Shareware
+                $39.95 </em></font><font size="2"><img
+                src="newyellow.gif" alt="NEW 3/03" width="27"
+                height="12"></font></dt>
+            <dd><font size="2">Lookout Steganos, there's a new
+                kid on the block! </font><a
+                href="http://www.invisiblesecrets.com"><font
+                size="2">Invisible Secrets</font></a><font
+                size="2"> encrypts and hides files in JPEG, PNG,
+                BMP, HTML and WAV. Loaded with new features, it
+                provides strong encryption (Blowfish, Twofish, RC4,
+                Cast128, and GOST), shredder, password manager
+                and generator, self-decrypting archives, internet
+                trace destroyer, IP-to-IP password transfer, and
+                application locker. Interfacing nicely with
+                Windows Explorer via right-click context-sensitive
+                menus, this low cost shareware program is
+                definitely worth checking out!</font></dd>
+            <dt><a href="http://securengine.isecurelabs.com/"><font
+                size="2">SecurEngine 2.0</font></a><font size="2">
+                (2.0 mb) </font><font size="1"><em>Freeware </em></font><font
+                size="2"><img src="newyellow.gif" alt="NEW 3/03"
+                width="27" height="12"></font></dt>
+            <dd><font size="2">SecurEngine is nice little program
+                that hides data in BMP, JPG, and txt files.
+                Strong encryption and file wiping encluded.
+                French and English versions available.</font></dd>
+            <dt><a
+                href="http://sourceforge.net/projects/camerashy/"><font
+                size="2">Camera/Shy v0.2.23.1</font></a><font
+                size="2"> (1.4 mb) </font><font size="1"><em>Freeware
+                </em></font><font size="2"><img
+                src="newyellow.gif" alt="NEW 1/03" width="27"
+                height="12"></font></dt>
+            <dd><font size="2">Camera/Shy is the only
+                steganographic tool that automatically scans for
+                and delivers decrypted content <u>straight from
+                the Web</u>. It is a stand-alone, Internet
+                Explorer-based browser that leaves no trace on
+                the user's system and has enhanced security. As a
+                safety feature Camera/Shy also includes security
+                switches for protection against malicious HTML.
+                Picture that. Spanish, German, and Chinese
+                versions also available.</font></dd>
+            <dt><a href="http://www.internet-anonyme.com/"><font
+                size="2">Cameleon</font></a><font size="2"> (874k)
+                <em>Freeware </em><img src="newyellow.gif"
+                alt="NEW 1/03" width="27" height="12"></font></dt>
+            <dd><font size="2">French language GIF-based stego
+                with strong (256bit AES) encryption.</font></dd>
+            <dt><a href="http://cryptarkan.fromru.com/"><font
+                size="2">CryptArkan</font></a><font size="2"> (471k)
+                <em>Shareware $29.99</em><img src="newyellow.gif"
+                alt="NEW 1/03" width="27" height="12"></font></dt>
+            <dd><font size="2">Hides <i>data</i> files and
+                directories inside one or more <i>container</i>
+                files, such as sound/music (WAV) and images (BMP).
+                Hidden data can be directly read off an Audio CD.
+                Strong encryption and plugins for added features.</font></dd>
+            <dt><a
+                href="http://sourceforge.net/projects/stego-lame/"><font
+                size="2">Stego-Lame</font></a><font size="2"> (2.3mb)
+                <em>Freeware</em><img src="newyellow.gif"
+                alt="NEW 1/03" width="27" height="12"></font></dt>
+            <dd><font size="2">An alpha-version program in
+                Windows C source code which hides data in various
+                audio streams (MP3, Ogg Vorbis, MPEG 2/4 AAC, G.72x).
+                No precompiled binaries yet.</font></dd>
+            <dt><a href="http://www.darkside.com.au/gifshuffle/"><font
+                size="2">Gifshuffle v2.0</font></a><font size="2">
+                (33k) </font><font size="1"><em>Freeware </em></font><font
+                size="2"><img src="newyellow.gif" alt="NEW 1/03"
+                width="27" height="12"></font></dt>
+            <dd><a href="http://www.darkside.com.au/gifshuffle/"><font
+                size="2">Gifshuffle</font></a><font size="2"> is
+                a <u>command-line-only</u> program for windows
+                which conceals messages in GIF images by
+                shuffling the colourmap. The picture remains
+                visibly intact, only the order of color within
+                the palette is changed. It works with all GIF
+                images, including those with transparency and
+                animation, and in addition provides compression
+                and encryption of the concealed message. </font></dd>
+            <dt><a href="http://www.outguess.org/detection.php"><font
+                size="2">Stegdetect (XSteg)</font></a><font
+                size="2"> (2.3 mb) </font><font size="1"><em>Freeware
+                </em></font></dt>
+            <dd><font size="2"><em>Stegdetect</em> is an
+                automated tool for detecting steganographic
+                content in images. It is capable of detecting
+                several different steganographic methods to embed
+                hidden information in JPEG images. Currently, the
+                detectable schemes are jsteg, jphide (unix and
+                windows), invisible secrets, outguess 01.3b, F5,
+                appendX, and camouflage.</font></dd>
+            <dt><a
+                href="http://www.webattack.com/get/jpegx.shtml"><font
+                size="2">JPegX</font></a><font size="2"> (18 kb) </font><font
+                size="1"><em>Freeware </em></font></dt>
+            <dd><font size="2">JPegX is an encryption program
+                that hides your important information inside
+                standard JPEG image files. The image is left
+                visually unchanged and messages are encrypted and
+                password protected. To decrypt the message, you
+                need to open the JPEG file that holds it and
+                enter the password if prompted.</font></dd>
+            <dt><a href="http://www.webkclub.com/tte/"><font
+                size="2">The Third Eye</font></a><font size="2">
+                (490k) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font color="#000000" size="2">Hides files in
+                BMP, GIF, and PCX files. Includes encryption and
+                nice user interface.</font></dd>
+            <dt><a href="http://www.webkclub.com/tte/weavwav.zip"><font
+                size="2">WeavWav</font></a><font size="2"> (173k)
+                </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Software that can hide secret data
+                in .wav files. Very basic interface.</font></dd>
+            <dt><a
+                href="http://prem-01.portlandpremium.co.uk/p1-28/imagehide.htm"><font
+                size="2">ImageHide</font></a><font size="2"> (1.1
+                mb) </font><font size="1"><em>Freeware </em></font></dt>
+            <dd><font size="2">Windows-based program which hide
+                files in a number of different formats without
+                increasing file size.</font></dd>
+            <dt><a href="http://www.antiy.net/infostego/"><font
+                size="2">InfoStego</font></a><font size="2"> (4.2
+                mb) </font><font size="1"><em>Freeware </em></font></dt>
+            <dd><font size="2">Windows-based program which hide
+                files in a BMP with compression and encryption.</font></dd>
+            <dt><a href="jstegshella.zip"><font size="2">JSteg
+                Shell v2.0</font></a><font size="2"> (2.0 mb) </font><font
+                size="1"><em>Freeware </em><!--webbot
+                bot="PurpleText"
+                preview="old link http://www.tiac.net/users/korejwa/jsteg.htm"
+                --></font></dt>
+            <dd><a href="jstegshella.zip"><font size="2">JSteg
+                Shell</font></a><font size="2"> is a Win95/98/NT
+                (not Win2000) interface to run JSteg DOS, a
+                program by Derek Upham which hides data in the
+                ever popular JPG image format. Includes 40 bit RC4
+                encrytion, determination of the amount of data a
+                JPG can hide beforehand, and user-selectable JPG
+                options (ie. degree of compression). JSteg Shell
+                has a slick, easy to use interface that makes
+                using JSteg DOS a snap. Don't worry about
+                downloading the DOS executables as Jsteg Shell
+                comes with them, and the installer takes care of
+                all of the setup details. Excellent and easy to
+                use JPG stego! </font></dd>
+            <dt><a
+                href="http://linux01.gwdg.de/~alatham/stego.html"><font
+                size="2">JP Hide and Seek</font></a><font
+                size="2"> (184k) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><a
+                href="http://linux01.gwdg.de/~alatham/stego.html"><font
+                size="2">JPHS</font></a><font size="2"> is a Win95/98/NT
+                stego program with a no-frills GUI that hides
+                data in the ever popular JPG image format. Its
+                small size is a major bonus as it easily fits on
+                a disk. It uses Blowfish encryption. DOS and
+                Linux version also available.</font></dd>
+            <dt><a
+                href="http://www.know.comp.kyutech.ac.jp/BPCSe/Dpenv-e/DPENVe-home.html"><font
+                size="2">Digital Picture Envelope</font></a><font
+                size="2"> (1.4 mb) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Digital Picture Envelope is a
+                Windows 95/98/NT program based on the </font><a
+                href="http://www.know.comp.kyutech.ac.jp/BPCSe/index.html"><font
+                size="2">BPCS-Steganographic technique</font></a><font
+                size="2"> which was invented by Eiji Kawaguchi in
+                1997. It is a BMP-based stego program that can
+                hide an incredible amount of data in a single
+                file, often 50-100% of the originial image
+                without changing the file size. Definitely worth
+                the download.</font></dd>
+            <dt><a href="http://www.scramdisk.clara.net/"><font
+                size="2">Scramdisk</font></a><font size="2"> (187k)
+                </font><font size="1"><em>Freeware </em></font><font
+                color="#FF0000" size="1">No longer in development...
+                see </font><a href="http://www.drivecrypt.com/"><font
+                color="#FF0000" size="1">DriveCrypt</font></a></dt>
+            <dd><a href="http://www.scramdisk.clara.net/"><font
+                size="2">Scramdisk</font></a><font size="2"> is a
+                Win 95/98 based disk encryption program that
+                allows the creation and use of virtual encrypted
+                drives. These can be created in a container file
+                on a FAT formatted hard disk, on an empty
+                partition, or <u>stored in the low bits of a WAV
+                audio file</u> (which makes it steganography). It
+                has a slick interface and comes with a number of
+                'industry standard' encryption algorithms,
+                including Triple-DES, IDEA, MISTY1, Blowfish,
+                TEA, and Square. Also available as French-based
+                exe.</font></dd>
+            <dt><a
+                href="http://www.cl.cam.ac.uk/~fapp2/steganography/mp3stego/"><font
+                size="2">MP3Stego</font></a><font size="2"> (197k)
+                </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><a
+                href="http://www.cl.cam.ac.uk/~fapp2/steganography/mp3stego/"><font
+                size="2">MP3Stego</font></a><font size="2"> has
+                both GUI and command-line versions that hide
+                information in MP3 files, which are wav file
+                sound tracks that are compressed using the MPEG
+                Audio Layer III format. They offer near-CD
+                quality sound at a compression ratio of 11 to 1 (128
+                kilobits per second). This gives a very good
+                opportunity for information hiding. </font><a
+                href="http://www.cl.cam.ac.uk/~fapp2/steganography/mp3stego/"><font
+                size="2">MP3Stego</font></a><font size="2"> is
+                available as Windows 95/98/NT executables and
+                Linux/Unix source code (found in the zip file).</font></dd>
+            <dt><a href="http://wbstego.wbailer.com"><font
+                size="2">wbStego4.2</font></a><font size="2"> (1.0
+                mb) </font><font size="1"><em>Shareware $20 </em></font></dt>
+            <dd><font size="2">BMP, TXT, HTML/XML, and PDF
+                steganography for Windows. Includes a handy
+                Wizard interface, a new (faster) engine,
+                passphrase support to 2 GB, built-in encryption,
+                and key generation. New to this version is a
+                &quot;copyright info manager&quot; to add
+                authorship information to files, although the
+                legal enforceability of this feature is uncertain.
+                English and German version are available.</font></dd>
+            <dt><a
+                href="http://www.scramdisk.clara.net/play/playmaker.html"><font
+                size="2">Sam's Big Play Maker</font></a><font
+                size="2"> (182 kb) </font><font size="1"><em>Freeware
+                </em></font></dt>
+            <dd><font size="2">Sams Big Play Maker is a Windows-based
+                program that converts arbitrary text to an
+                amusing play. Only practical for small messages,
+                otherwise the output &quot;play&quot; is quite
+                large. Fun and free!</font></dd>
+            <dt><a
+                href="http://pages.prodigy.net/robyn.wilson/courier.zip"><font
+                size="2">Courier v1.0a</font></a><font size="2">
+                (187 kb) </font><font size="1"><em>Freeware </em></font></dt>
+            <dd><font size="2">Simple program that hides messages
+                in BMPs.</font></dd>
+            <dt><a href="http://www.camouflagesoftware.co.uk/"><font
+                size="2">Camouflage</font></a><font size="2"> (2.6
+                mb) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Camouflage is an interesting
+                Windows-based program that allows you to hide
+                files by scrambling them and then attaching them
+                to the end of the file of your choice. The
+                camouflaged file then looks and behaves like a
+                normal file, and can be stored or emailed without
+                attracting attention. Works for pretty much any
+                file type. Password protection included. <strong>Please
+                note</strong>: The hidden file can be detected by
+                examining to raw file data and seeing that the
+                hidden file has been added after the normal
+                carrier data, but this will only appear as
+                gibberish since the data is encrypted. It is not
+                the most secure form of steganography, but what
+                it lacks in strength is makes up for in being
+                inconspicuous by using routine files (i.e. Word
+                docs). </font><a
+                href="http://www.pipo.com/guillermito/camouflage/index.html"><font
+                size="2">Reportedly cracked</font></a><font
+                size="2">.</font></dd>
+            <dt><a
+                href="http://www.pworlds.com/products/i_secrets.html"><font
+                size="2">BMP Secrets</font></a><font size="2"> (2.0
+                mb) </font><font size="1"><em>Freeware </em></font></dt>
+            <dd><font size="2">BMP-based stego product for
+                Windows with a decent interface and a <u>very
+                large hiding capacity</u> (~65% of carrier file).
+                Includes built-in encryption and ability to hide
+                data within specific sub-areas of the image.
+                Could use a button to clear prior entries and the
+                unhide interface could be a bit more intuitive,
+                but these are superficial issues which I suspect
+                will be fixed in a future version. Worth checking
+                out.</font></dd>
+            <dt><a
+                href="ftp://ftp.uni-bielefeld.de/pub/crypto/replay/incoming/hideseek95.zip"><font
+                size="2">Hide and Seek for Win95</font></a><font
+                size="2"> (96k) </font><font size="1"><em>Shareware
+                $15</em></font></dt>
+            <dd><font size="2">Hide and Seek for Windows 95 is a
+                BMP-based steganography program by Colin Moroney,
+                the author of the dos versions of Hide and Seek.
+                This version is a considerable step up from his
+                previous efforts. Its professional-looking
+                interface makes it easy to use. The file wiping
+                options and blowfish header encryption method are
+                added bonuses. </font></dd>
+            <dt><a href="http://www.ssdltd.com/english/smail.htm"><font
+                size="2">S-Mail</font></a><font size="2"> </font><font
+                size="1"><em>Shareware v1.3 $195 - v1.4 $695 (high
+                security) </em></font><font color="#FF0000"
+                size="1">(<i>Available on </i></font><a
+                href="stegoarchivecd.html"><font color="#FF0000"
+                size="1"><i>StegoArchive CD</i></font></a><font
+                color="#FF0000" size="1">)</font></dt>
+            <dd><font size="2">S-Mail is a stego program that
+                runs under all versions of Windows and DOS that
+                uses strong encryption and compression to hide
+                files in EXE and DLL files. Yes, you can hide
+                files within full working programs! It has a nice
+                user interface and takes measures to ensure that
+                its hiding scheme is not detected by pattern or
+                ID string scanners. Download the demo and check
+                it out. </font></dd>
+            <dt><font size="2"><u>Invisible Secrets</u> (1.2mb) </font><font
+                size="1"><em>Sponsorware (free) Banner-free
+                version $19.95 </em></font><font color="#FF0000"
+                size="1">(<i>Available on </i></font><a
+                href="stegoarchivecd.html"><font color="#FF0000"
+                size="1"><i>StegoArchive CD</i></font></a><font
+                color="#FF0000" size="1">)</font></dt>
+            <dd><font size="2">Invisible Secrets is an intersting
+                piece of software in that it is the first banner-supported
+                stego software that I've seen. As such, you've
+                got to be on the net to use it </font><font
+                size="1">(so the banners can load)</font><font
+                size="2">. You can pay a modest fee </font><font
+                size="1"><em>($19.95)</em></font><font size="2">
+                to lose the ads, which may be well worth it as
+                there are a number of cool things about this
+                software. These include JPG, BMP and PNG hiding,
+                strong encryption, FTP support, temp file wiping,
+                and fake message generation. Also included is the
+                ability to add additional encryption and image
+                file modules. Check it out!</font></dd>
+            <dt><a
+                href="http://www.cl.cam.ac.uk/users/fapp2/watermarking/stirmark/index.html"><font
+                size="2">StirMark</font></a><font size="2"> (3.1
+                mb) and <u>UnZign</u>* (263k) </font><font
+                size="1"><em>Freeware *</em></font><font
+                color="#FF0000" size="1">(<i>UnZign is available
+                on </i></font><a href="stegoarchivecd.html"><font
+                color="#FF0000" size="1"><i>StegoArchive CD</i></font></a><font
+                color="#FF0000" size="1">)</font></dt>
+            <dd><font size="2">Stirmark and UnZign are command-line
+                programs that remove copyright and stego'd
+                information from files. Like many other programs
+                which break established security mechanisms,
+                these programs are intended to demonstrate the
+                weakness in current algorithms so that companies
+                will be motivated to develop more robust
+                watermarking and steganography technologies.</font></dd>
+            <dt><a
+                href="ftp://ftp.ntua.gr/pub/crypt/mirrors/idea.sec.dsi.unimi.it/code/s-tools4.zip"><font
+                size="2">S-Tools4</font></a><font size="2"> (272k)
+                (</font><a
+                href="ftp://ftp.uni-stuttgart.de/pub/rus/security/win95/s-tools4.zip"><font
+                size="2"><i>alternative site</i></font></a><font
+                size="2">) (</font><a
+                href="ftp://ftp.thur.de/pub/software/stegano/s-tools4.zip"><font
+                size="2"><i>alternative site</i></font></a><font
+                size="2">) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">S-Tools v4 is an excellent Win 95/NT
+                based steganography tool that hides files in BMP,
+                GIF, and WAV files. <i>It will not run with Win 3.1</i>.
+                S-Tools v4 has a number of new </font><a
+                href="s-tools4.html"><font size="2">improvements</font></a><font
+                size="2"> over the previous version. </font></dd>
+            <dt><a
+                href="ftp://ftp.ntua.gr/pub/crypt/mirrors/idea.sec.dsi.unimi.it/code/s-tools3.zip"><font
+                size="2">S-Tools3</font></a><font size="2"> (283k)
+                </font><font size="1"><em>Freeware/Shareware ~$25</em></font></dt>
+            <dd><font size="2">An excellent Windows based
+                steganography tool. Hides files in BMP, GIF, WAV,
+                and unused space on floppies! </font></dd>
+            <dt><a href="pn123e18.zip"><font size="2">PGPn123</font></a><font
+                size="2"> (428k) <!-- Old Address  http://www.rof.net/yp/alphaone/epgpn123.htm  --> </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">PGPn123 is primarily a pgp &quot;windows
+                clipboard&quot; shell program that makes using
+                pgp for Eudora, Agent, or Pegasus Mail very easy.
+                The latest version includes a steganography
+                option that is implemented after the message is
+                pgp encrypted. The algorithm is based on the
+                Texto program, making encrypted text files look
+                like something between mad libs and bad poetry.
+                To get rid of those annoying &quot;nag&quot;
+                screens, be sure to download the </font><a
+                href="Regkeysp.exe"><font size="2">FREE
+                registration key generator</font></a><font
+                size="2"> (special thanks to the folks at Alpha1).
+                </font></dd>
+            <dt><a
+                href="http://www.winsite.com/bin/Info?500000033023"><font
+                size="2">Encrypt Pic</font></a><font size="2"> (442k)
+                </font><font size="1"><em>Shareware $10 <!-- Old Address  http://members.nbci.com/fredc/encryptpic.html  --></em></font></dt>
+            <dd><font size="2">With Encrypt Pic, you can hide
+                data in 24 bit BMP images. It has the added
+                benefit of offering data encryption via the
+                BlowFish algorithm. French version also available.</font></dd>
+            <dt><a href="http://www.intar.com/ITP/itpinfo.htm"><font
+                size="2">In The Picture v2.20</font></a><font
+                size="2"> (1.8 mb) </font><font size="1"><em>Shareware
+                $25</em></font></dt>
+            <dd><a href="http://www.intar.com/ITP/itpinfo.htm"><font
+                size="2">In The Picture</font></a><font size="2">
+                is a Win95-based stego program that hides data in
+                BMP images. It offers multiple unique keys so you
+                can encrypt data intended for multiple recipients
+                into the same file. It has a drag and drop
+                interface and can generate a random fractal image
+                to use as a vessel image, if needed. </font></dd>
+            <dt><a
+                href="http://packetstormsecurity.nl/crypt/stego/gif-it-up/setupex.exe"><font
+                size="2">Gif-It-Up v1.0</font></a><font size="2">
+                (1310k) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Gif-It-Up is a Win95-based stego
+                program that hides data in GIF files. It has a
+                professional-looking interface and includes a
+                slick installation program, a data encryption
+                option, and, best of all, is FREE. </font></dd>
+            <dt><a
+                href="http://www.brasil.terravista.pt/Jenipabu/2571/e_hip.htm"><font
+                size="2">Hide In Picture 2.0</font></a><font
+                size="2"> (366k) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font color="#000000" size="2">Hide in Picture (HIP)
+                is a small, easy-to-use Win9x or DOS stego
+                program with blowfish encryption that hides data
+                in BMP images.</font></dd>
+            <dt><a
+                href="http://hosted.barrysworld.net/minimice/Body/Programs/ds_info.html"><font
+                size="2">Data Stash</font></a><font size="2"> (312k)
+                </font><font size="1"><em>Shareware $25 </em></font></dt>
+            <dd><font color="#000000" size="2">Hides files in BMP
+                or database files. Comes w/ password protection.</font></dd>
+            <dt><a
+                href="http://www.xs4all.nl/~bernard/home_e.html"><font
+                size="2">D.P.T. (Data Privacy Tools)</font></a><font
+                size="2"> (1.0 mb) </font><font size="1"><em>Freeware
+                </em></font></dt>
+            <dd><font size="2">Strong encryption with optional
+                BMP steganography.</font></dd>
+            <dt><a href="http://www.9-yards.com/software.html"><font
+                size="2">In Plain View</font></a><font size="2">
+                (105k) </font><font size="1"><em>Freeware </em></font></dt>
+            <dd><font size="2">BMP steganography with password
+                protection.</font></dd>
+            <dt><a href="http://www.smalleranimals.com/stash.htm"><font
+                size="2">Stash-It v1.1</font></a><font size="2">
+                (278k) </font><font size="1"><em>Freeware </em></font><font
+                color="#FF0000" size="1">(<i>Available on </i></font><a
+                href="stegoarchivecd.html"><font color="#FF0000"
+                size="1"><i>StegoArchive CD</i></font></a><font
+                color="#FF0000" size="1">)</font></dt>
+            <dd><font color="#000000" size="2">Stash is a simple
+                Win95/98/NT-based stego program that will allow
+                you to hide (and extract, of course) any data
+                file inside a perfectly normal BMP, GIF, TIFF,
+                PNG or PCX file. It does not appear to have any
+                additional encryption features.</font></dd>
+            <dt><a
+                href="http://www.biol.rug.nl/hens/j/che_xmas-beta.zip"><font
+                size="2">Contraband Hell Edition</font></a><font
+                size="2"> (824k) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Contraband Hell Edition is a BMP-based
+                stego program with strong encryption built in. It
+                has a nice setup program and user interface and
+                is FREE! It is still in beta, but only in so that
+                it lacks helpfiles. Easy to use. </font></dd>
+            <dt><a
+                href="http://www.biol.rug.nl/hens/j/contrabd.exe"><font
+                size="2">Contraband</font></a><font size="2"> (245k)
+                </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Windows-based program which embeds
+                and extracts any thinkable file into 24-bit BMP's.
+                Includes source code. </font></dd>
+            <dt><font size="2"><u>Scytale</u> (575k) </font><font
+                size="1"><em>Freeware </em></font><font
+                color="#FF0000" size="1">(<i>Available on </i></font><a
+                href="stegoarchivecd.html"><font color="#FF0000"
+                size="1"><i>StegoArchive CD</i></font></a><font
+                color="#FF0000" size="1">)</font></dt>
+            <dd><font size="2">Scytale is a pgp shell program
+                that has the added feature of hiding data in PCX
+                images. Other strengths of the program include a
+                built-in wiper and batch mode capabilities.
+                Available in both 16 and 32 bit versions.</font></dd>
+            <dt><a href="http://steghide.sourceforge.net"><font
+                size="2">Steghide 0.4.6.b</font></a><font
+                size="2"> (1.4 mb) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Steghide, by Stefan Hetzl, is a
+                command-line application that features hiding
+                data in jpg, bmp, wav and au files, blowfish
+                encryption, 128 bit MD5 hashing of passphrases to
+                blowfish keys and pseudo-random distribution of
+                hidden bits in the container data. Steghide is
+                written in ANSI C so the source code should
+                compile on many systems. Precompiled binaries are
+                available for Windows and Linux. </font></dd>
+            <dt><a
+                href="http://www.heinz-repp.onlinehome.de/Hide4PGP.htm"><font
+                size="2">Hide4PGP v2.0</font></a><font size="2">
+                (114k) </font><font size="1"><em>Freeware</em></font></dt>
+            <dd><font size="2">Hide4PGP v2.0 by </font><a
+                href="mailto:Heinz.Repp@online.de"><font size="2">Heinz
+                Repp</font></a><font size="2"> is a command-line
+                steganographic program for Windows, DOS, OS/2,
+                and Linux that hides data within BMP, WAV, and
+                VOC files. It is designed to be used with both
+                PGP and Stealth, but also works well as a stand-alone
+                program. Version 2.0 has several new features,
+                including a new stego format which is much more
+                robust against format conversions - only lossy
+                compression formats will loose the hidden data.
+                The source is also included and should compile on
+                any platform without major problems. </font></dd>
+            <dt><a
+                href="http://the-other.wiretapped.net/security/steganography/blindside/"><font
+                size="2">Blindside</font></a><font size="2"> (222k)
+                <em>Freeware</em></font></dt>
+            <dd><font size="2">Blindside is a command-line
+                utility that hides files in BMP's and has
+                optional encryption. Also available are Linux,
+                HP, Solaris, and AIX versions.</font></dd>
+            <dt><a href="http://www.compris.com/subitext/"><font
+                size="2">TextHide</font></a><font size="2"> (7.8mb)
+                </font><font size="1"><em>Free Demo/Commercialware
+                $39 (lite) 89.50 (pro)</em></font></dt>
+            <dd><font size="2">SubiText is an interesting program
+                that subtly changes text features, such as
+                narration tense, perspective, and single word
+                synonym replacements to hide data within any text
+                file. For instance, &quot;the auto drives fast on
+                a slippery road over the hill&quot; instead
+                becomes &quot;over the slope the car travels
+                quickly on an ice-covered street.&quot; SubiText
+                uses strong encryption (Twofish and RSA) to cover
+                its tracks. The program's GUI is currently
+                written in German, making its use a bit
+                challenging for this non-German-speaking user.
+                There is a crippled demo available for download,
+                but the full version (CD) requires purchase.</font></dd>
+            <dt><a href="http://www.stealthencrypt.com"><font
+                size="2">Stealthencrypt</font></a><font size="2">
+                </font><font size="1"><em>Commercialware $unknown</em></font></dt>
+            <dd><font size="2">Stealthencrypt is part of the
+                Internet Security Suite which features BMPand TIF
+                steganography and uses triple DES and Blowfish
+                encryption. Online downloading/ordering of this
+                product is <u>not available</u> at this time. The
+                software is available in the US and Canada at
+                software stores such as CompUSA, Best Buy,
+                Walmart, and Target.</font></dd>
+        </dl>
+        </td>
+    </tr>
+</table>
+</div>
+
+<hr>
+
+<h3 align="center"><font size="3"><strong>Windows | </strong></font><a
+href="softwaredos.html"><font size="3"><strong>DOS</strong></font></a><font
+size="3"><strong> | </strong></font><a href="softwarejava.html"><font
+size="3"><strong>Java</strong></font></a><font size="3"><strong>
+| </strong></font><a href="softwaremac.html"><font size="3"><strong>Macintosh</strong></font></a><font
+size="3"><strong> | </strong></font><a href="softwareos2.html"><font
+size="3"><strong>OS/2</strong></font></a><font size="3"><strong>
+| </strong></font><a href="softwareunix.html"><font size="3"><strong>Unix/OpenBSD/Linux</strong></font></a><font
+size="3"><strong> | </strong></font><a href="softwareamiga.html"><font
+size="3"><strong>Amiga</strong></font></a></h3>
+
+<hr>
+
+<p><font size="3">Back to the </font><a
+href="http://www.StegoArchive.com"><font size="3">Main Page</font></a><font
+size="3"><br>
+Copyright ?1997-2003 </font><a
+href="mailto:webmaster@stegoarchive.com"><font size="3">StegoArchive.com</font></a><font
+size="3">. All Rights Reserved. </font><img
+src="http://counter.tripod.com/bin/iandr?font=arial&amp;scale=1.5&amp;digits=0&amp;fgcolor=000000">
+visitors since July 2000. </p>
+</BODY>
+</html>
